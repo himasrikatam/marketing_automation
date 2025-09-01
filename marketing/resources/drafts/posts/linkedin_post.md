@@ -1,0 +1,1 @@
+{"content_type": "social media post", "topic": "Introduction to Cold Emailing Automation", "target_audience": "SMEs", "tags": ["cold emailing", "automation"], "content": "Discover how cold emailing automation can streamline your sales process and save you time. Learn more about our tool and how it can benefit your business."}
