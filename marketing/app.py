@@ -64,41 +64,41 @@ class TheMarketingCrew():
             max_rpm=3
         )
 
-    # @agent
-    # def content_writer_blogs(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['content_writer_blogs'],
-    #         tools=[
-    #             SerperDevTool(),
-    #             ScrapeWebsiteTool(),
-    #             DirectoryReadTool('resources/drafts/blogs'),
-    #             FileWriterTool(),
-    #             FileReadTool()
-    #         ],
-    #         inject_date=True,
-    #         llm=llm,
-    #         allow_delegation=True,
-    #         max_iter=5,
-    #         max_rpm=3
-    #     )
+    @agent
+    def content_writer_blogs(self) -> Agent:
+        return Agent(
+            config=self.agents_config['content_writer_blogs'],
+            tools=[
+                SerperDevTool(),
+                ScrapeWebsiteTool(),
+                DirectoryReadTool('resources/drafts/blogs'),
+                FileWriterTool(),
+                FileReadTool()
+            ],
+            inject_date=True,
+            llm=llm,
+            allow_delegation=True,
+            max_iter=5,
+            max_rpm=3
+        )
 
-    # @agent
-    # def seo_specialist(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['seo_specialist'],
-    #         tools=[
-    #             SerperDevTool(),
-    #             ScrapeWebsiteTool(),
-    #             DirectoryReadTool('resources/drafts'),
-    #             FileWriterTool(),
-    #             FileReadTool()
-    #         ],
-    #         inject_date=True,
-    #         llm=llm,
-    #         allow_delegation=True,
-    #         max_iter=3,
-    #         max_rpm=3
-    #     )
+    @agent
+    def seo_specialist(self) -> Agent:
+        return Agent(
+            config=self.agents_config['seo_specialist'],
+            tools=[
+                SerperDevTool(),
+                ScrapeWebsiteTool(),
+                DirectoryReadTool('resources/drafts'),
+                FileWriterTool(),
+                FileReadTool()
+            ],
+            inject_date=True,
+            llm=llm,
+            allow_delegation=True,
+            max_iter=3,
+            max_rpm=3
+        )
 
     @task
     def market_research(self) -> Task:
@@ -129,36 +129,36 @@ class TheMarketingCrew():
             output_json=Content
         )
 
-    # @task
-    # def prepare_scripts_for_reels(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['prepare_scripts_for_reels'],
-    #         agent=self.content_creator_social_media(),
-    #         output_json=Content
-    #     )
+    @task
+    def prepare_scripts_for_reels(self) -> Task:
+        return Task(
+            config=self.tasks_config['prepare_scripts_for_reels'],
+            agent=self.content_creator_social_media(),
+            output_json=Content
+        )
 
-    # @task
-    # def content_research_for_blogs(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['content_research_for_blogs'],
-    #         agent=self.content_writer_blogs()
-    #     )
+    @task
+    def content_research_for_blogs(self) -> Task:
+        return Task(
+            config=self.tasks_config['content_research_for_blogs'],
+            agent=self.content_writer_blogs()
+        )
 
-    # @task
-    # def draft_blogs(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['draft_blogs'],
-    #         agent=self.content_writer_blogs(),
-    #         output_json=Content
-    #     )
+    @task
+    def draft_blogs(self) -> Task:
+        return Task(
+            config=self.tasks_config['draft_blogs'],
+            agent=self.content_writer_blogs(),
+            output_json=Content
+        )
 
-    # @task
-    # def seo_optimization(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['seo_optimization'],
-    #         agent=self.seo_specialist(),
-    #         output_json=Content
-    #     )
+    @task
+    def seo_optimization(self) -> Task:
+        return Task(
+            config=self.tasks_config['seo_optimization'],
+            agent=self.seo_specialist(),
+            output_json=Content
+        )
 
     @crew
     def marketingcrew(self) -> Crew:
